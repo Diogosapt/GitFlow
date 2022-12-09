@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace GitFlow.Controllers
 {
-    public class HomeController : Controller
+    public class EmployeeController : Controller
     {
         public ActionResult Index()
         {
