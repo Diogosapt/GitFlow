@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GitFlow.Models;
+using GitFlow.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,18 +15,29 @@ namespace GitFlow.Controllers
             return View();
         }
 
-        public ActionResult About()
+        // GET: Employee/AddEmployee
+        public ActionResult AddEmployee()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
-        public ActionResult Contact()
+        // POST: Employee/AddEmployee
+        [HttpPost]
+        public ActionResult AddEmployee(EmployeeRequest employee)
         {
-            ViewBag.Message = "Your contact page.";
+            try
+            {
+                DataRepository EmpRepo = new DataRepository();
+                EmpRepo.AddEmployee(employee);
 
-            return View();
+                ViewBag.Message = "Records added successfully.";
+
+                return View();
+            }
+            catch
+            {
+                return View("Index");
+            }
         }
     }
 }

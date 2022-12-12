@@ -20,7 +20,7 @@ namespace GitFlow.Repository
             conn = new SqlConnection(constr);
         }
 
-        public void AddEmployee(Employee employee)
+        public void AddEmployee(EmployeeRequest employee)
         {
             try
             {
