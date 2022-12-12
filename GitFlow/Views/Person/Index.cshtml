@@ -1,0 +1,63 @@
+﻿@model IEnumerable<GitFlow.Models.Person>
+
+@{
+    ViewBag.Title = "";
+}
+
+<h2>Formulário</h2>
+
+<p>
+    @Html.ActionLink("Adiconar Nova Pessoa", "AddPerson")
+</p>
+<table class="table table-dark">
+    <tr>
+        <th class="col">
+            @Html.DisplayNameFor(model => model.Id_Person)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Surname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Birthday)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id_Person)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Birthday)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "EditPerson", new { id = item.Id_Person }) |
+                @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+                @Html.ActionLink("Delete", "DeletePerson", new { id = item.Id_Person })
+            </td>
+        </tr>
+    }
+</table>
